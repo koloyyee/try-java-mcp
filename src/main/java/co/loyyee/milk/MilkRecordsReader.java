@@ -1,16 +1,10 @@
 package co.loyyee.milk;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.function.Function;
-import java.util.stream.Collectors;
-
-import javax.swing.text.DateFormatter;
 
 import de.siegmar.fastcsv.reader.CsvReader;
 import de.siegmar.fastcsv.reader.CsvRecord;
@@ -18,14 +12,7 @@ import de.siegmar.fastcsv.reader.CsvRecord;
 /**
  * Read from resources directory and return as an array of milk records
  */
-public class MilkRecordsReader {
-
-    public static void main(String[] args) {
-        var m = new MilkRecordsReader();
-        var milks = m.read();
-        System.out.println(milks);
-
-    }
+class MilkRecordsReader {
 
     List<Milk> read() {
         try (var inputStream = getClass().getClassLoader().getResourceAsStream("nms_strontium90_milk_ssn_strontium90_lait.csv"); CsvReader<CsvRecord> csv = CsvReader.builder().ofCsvRecord(inputStream);) {
@@ -38,7 +25,7 @@ public class MilkRecordsReader {
 
         } catch (IOException e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
         return List.of();
     }
@@ -46,9 +33,7 @@ public class MilkRecordsReader {
     private Double parseDouble(String value) {
         try {
             return Double.parseDouble(value);
-        } catch (NullPointerException e) {
-            return null;
-        } catch (NumberFormatException ex) {
+        } catch (NullPointerException | NumberFormatException e) {
             return null;
         }
     }
