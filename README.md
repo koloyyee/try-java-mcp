@@ -1,6 +1,7 @@
 # Java MCP server
 
-A small demo of Java MCP Server based on Dan Vega's (Java MCP tutorial)[https://www.youtube.com/watch?v=Y_Rk6QgWUbE]
+A small demo of Java MCP Server based on Dan Vega's Java MCP YouTube tutorial
+https://www.youtube.com/watch?v=Y_Rk6QgWUbE
 
 ## Setup
 ### For Unix user here 
