@@ -12,6 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+/**
+ * This is a demo before using Spring AI MCP, in the spring-mcp branch this is
+ * no longer valid.
+ */
 public class Main {
 
     private static final Logger log = Logger.getLogger("Main");
